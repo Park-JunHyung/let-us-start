@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * Created by tchi on 2016. 12. 11..
  */
+//Test add
 public enum Operator {
     ADD("+") {
         @Override
