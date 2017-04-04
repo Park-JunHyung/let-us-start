@@ -9,15 +9,21 @@ public class CalcApp {
     public double calc(String[] tokens) {
         final double firstOperand;
         final double secondOperand;
-        firstOperand = Double.parseDouble(tokens[0]);
-        if (tokens.length > 2) {
-            secondOperand = Double.parseDouble(tokens[2]);
-        } else {
-            return firstOperand;
-        }
-        final Operator operator = Operator.findOperator(tokens[1]);
+        try {
+            firstOperand = Double.parseDouble(tokens[0]);
+            if (tokens.length > 2) {
+                secondOperand = Double.parseDouble(tokens[2]);
+            } else {
+                return firstOperand;
+            }
+            final Operator operator = Operator.findOperator(tokens[1]);
 
-        return operator.evaluate(firstOperand, secondOperand);
+            return operator.evaluate(firstOperand, secondOperand);
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Wrong input : Fist one must be digit");
+        }
+        return -1;
 
     }
 
