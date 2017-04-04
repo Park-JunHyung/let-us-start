@@ -17,18 +17,17 @@ public class CalcApp {
         li = new ArrayList<String>();
         li.addAll( Arrays.asList(tokens) );
        
-
         while(li.size()>2){
         	if(li.get(0).equals("(")||li.get(2).equals("("))
         	{
         		if(li.get(0).equals("("))
         		{
         			li.remove(0);
-        			li.add(0, bracket(0) );
+        			bracket(0);
         		}else if(li.get(2).equals("("))
         		{
         			li.remove(2);
-        			li.add(2, bracket(2) );
+        			bracket(2);
         		}
         	}else
         	{       		
@@ -36,46 +35,53 @@ public class CalcApp {
         		token[0]=li.remove(0);
         		token[1]=li.remove(0);
         		token[2]=li.remove(0);	        		
-        		li.add(0, String.valueOf(calc2(token)) );
+        		li.add(0, String.valueOf(calc(token)) );
         	}
         }
         return Double.parseDouble(li.get(0));
     } 
-	public String bracket(int index){
+	public void bracket(int index){
+		
+		int i=index;
 		
 		while(li.size()>2){
-			if(li.get(0).equals("(")||li.get(2).equals("("))
+			//여는 괄호
+			//TO DO Array bug fix
+			if(li.get(i).equals("(")||li.get(i+2).equals("("))
 			{
-				if(li.get(0).equals("("))
+				if(li.get(i).equals("("))
         		{
-        			li.remove(0);
-        			li.add(0, bracket(0) );
-        		}else if(li.get(2).equals("("))
+        			li.remove(i);
+        			bracket(i);
+        		}else if(li.get(i+2).equals("("))
         		{
-        			li.remove(2);
-        			li.add(2, bracket(2) );
+        			li.remove(i+2);
+        			bracket(i+2);
         		}
-        	}else if(li.get(0).equals(")")||li.get(2).equals(")"))
+			
+        	}// 닫는 괄호
+			else if(li.get(i+1).equals(")"))
         	{
-        		if(li.get(0).equals("("))
+        		if(li.get(i+1).equals(")"))
         		{
-        			li.remove(0);
-        			li.add(0, String.valueOf(bracket(0)) );
+        			li.remove(i+1);
+        			return ;
         		}
-        	}else
+        	}
+			else
         	{       		
         		String[] token=new String[3];
-        		token[0]=li.remove(0);
-        		token[1]=li.remove(0);
-        		token[2]=li.remove(0);	        		
-        		li.add(0, String.valueOf(calc2(token)) );
+        		token[0]=li.remove(i);
+        		token[1]=li.remove(i);
+        		token[2]=li.remove(i);	        		
+        		li.add(i, String.valueOf(calc(token)) );
         	}
         }
-        return li.get(0);
+        return ;
 	}
 	
 	
-    public double calc2(String[] tokens) {
+    public double calc(String[] tokens) {
         final double firstOperand;
         final double secondOperand;
         firstOperand = Double.parseDouble(tokens[0]);
