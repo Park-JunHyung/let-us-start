@@ -13,7 +13,7 @@ public class CalcApp {
         if (tokens.length > 2) {
             secondOperand = Double.parseDouble(tokens[2]);
         } else {
-            secondOperand = Double.parseDouble(tokens[1]);
+            return firstOperand;
         }
         final Operator operator = Operator.findOperator(tokens[1]);
 
