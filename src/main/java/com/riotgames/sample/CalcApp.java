@@ -1,30 +1,42 @@
 package com.riotgames.sample;
 
 import java.util.Arrays;
+import java.util.Vector;
 
 /**
  * Calculator application
  */
 public class CalcApp {
     public double calc(String[] tokens) {
-        final double firstOperand;
-        final double secondOperand;
+        double firstOperand;
+        double secondOperand;
         try {
             firstOperand = Double.parseDouble(tokens[0]);
             if (tokens.length > 2) {
-                secondOperand = Double.parseDouble(tokens[2]);
+                Vector<Double> v = new Vector<>();
+                v.add(firstOperand);
+                int i = 0;
+                while (i +2 < tokens.length)
+                {
+                    try {
+                        secondOperand = Double.parseDouble(tokens[i + 2]);
+                        final Operator operator = Operator.findOperator(tokens[i+1]);
+                        v.add(operator.evaluate(v.lastElement(), secondOperand));
+                    }
+                    catch (NumberFormatException e) {
+                        return -1;
+                    }
+                    i = i + 2;
+                }
+                return v.lastElement();
             } else {
                 return firstOperand;
             }
-            final Operator operator = Operator.findOperator(tokens[1]);
-
-            return operator.evaluate(firstOperand, secondOperand);
         }
         catch (NumberFormatException e) {
-            System.out.println("Wrong input : Fist one must be digit");
+            System.out.println("Wrong input");
+            return -1;
         }
-        return -1;
-
     }
 
     public static void main( String[] args ) {
