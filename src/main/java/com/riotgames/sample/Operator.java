@@ -1,10 +1,10 @@
 package com.riotgames.sample;
 
-import java.util.Arrays;
 
 /**
  * Created by tchi on 2016. 12. 11..
  */
+//Test add
 public enum Operator {
     ADD("+") {
         @Override
@@ -18,7 +18,7 @@ public enum Operator {
             return firstOperand - secondOperand;
         }
     },
-    MUL("*") {
+    MUL("x") {
         @Override
         public double evaluate(double firstOperand, double secondOperand) {
             return firstOperand * secondOperand;
@@ -39,12 +39,16 @@ public enum Operator {
 
     public abstract double evaluate(double firstOperand, double secondOperand);
 
-    public static Operator findOperator(String symbol) throws RuntimeException{
+    public static Operator findOperator(String symbol) throws Exception{
         for (Operator op : values()) {
             if (op.symbol.equals(symbol)) {
                 return op;
             }
         }
-        throw new RuntimeException("Invalid operator");
+
+        Exception e = new Exception("Invalid operator");
+        throw e;
+        //throw new RuntimeException("Invalid operator");
+
     }
 }
