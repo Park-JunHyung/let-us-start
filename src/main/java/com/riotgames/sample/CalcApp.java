@@ -2,8 +2,6 @@ package com.riotgames.sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
 
 /**
  * Calculator application
@@ -30,7 +28,7 @@ public class CalcApp {
         			bracket(2);
         		}
         	}else
-        	{       		
+        	{     
         		String[] token=new String[3];
         		token[0]=li.remove(0);
         		token[1]=li.remove(0);
@@ -44,10 +42,19 @@ public class CalcApp {
 		
 		int i=index;
 		
-		while(li.size()>2){
+		while((i+1)<li.size()){
 			//여는 괄호
 			//TO DO Array bug fix
-			if(li.get(i).equals("(")||li.get(i+2).equals("("))
+			if(li.get(i+1).equals(")"))
+        	{
+        		if(li.get(i+1).equals(")"))
+        		{
+        			li.remove(i+1);
+        			return ;
+        		}
+        	}
+			// 닫는 괄호
+			else if(li.get(i).equals("(")||li.get(i+2).equals("("))
 			{
 				if(li.get(i).equals("("))
         		{
@@ -58,16 +65,7 @@ public class CalcApp {
         			li.remove(i+2);
         			bracket(i+2);
         		}
-			
-        	}// 닫는 괄호
-			else if(li.get(i+1).equals(")"))
-        	{
-        		if(li.get(i+1).equals(")"))
-        		{
-        			li.remove(i+1);
-        			return ;
-        		}
-        	}
+        	} 
 			else
         	{       		
         		String[] token=new String[3];
@@ -100,7 +98,7 @@ public class CalcApp {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-        System.out.print( "Addition of values: " + outputs + " = ");
+        System.out.println( "Addition of values: " + outputs + " = ");
         System.out.println(app.calc3(args));
     }
 }
