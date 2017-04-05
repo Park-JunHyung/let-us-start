@@ -12,8 +12,6 @@ public class CalcApp  {
 	private String oB = "(";
 	private String cB = ")";
 	
-	private String QM ="\"";
-	
 	public double calc3 (String[] tokens) throws Exception {
        
 		
