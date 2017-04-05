@@ -1,6 +1,5 @@
 package com.riotgames.sample;
 
-import java.util.Arrays;
 
 /**
  * Created by tchi on 2016. 12. 11..
@@ -40,7 +39,7 @@ public enum Operator {
 
     public abstract double evaluate(double firstOperand, double secondOperand);
 
-    public static Operator findOperator(String symbol) throws RuntimeException{
+    public static Operator findOperator(String symbol){
         for (Operator op : values()) {
             if (op.symbol.equals(symbol)) {
                 return op;
