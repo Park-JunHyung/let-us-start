@@ -4,5 +4,6 @@ public class main {
 		System.out.println("Hi, professor!!");
 		System.out.println("My name is JeongSeokHyeon");
 		System.out.println("And I'm ParkJunHyung");
+		System.out.println("My name is LEEYUNSEOB");
 	}
 }

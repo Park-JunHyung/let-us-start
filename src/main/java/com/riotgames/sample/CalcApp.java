@@ -2,10 +2,12 @@ package com.riotgames.sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Vector;
 
 /**
  * Calculator application
  */
+
 public class CalcApp  {
 	
 	private ArrayList<String> li ;
@@ -91,11 +93,8 @@ public class CalcApp  {
             secondOperand = Double.parseDouble(tokens[2]);
         } else {
             secondOperand = Double.parseDouble(tokens[1]);
+
         }
-        final Operator operator = Operator.findOperator(tokens[1]);
-
-        return operator.evaluate(firstOperand, secondOperand);
-
     }
 
     public static void main( String[] args ) {
