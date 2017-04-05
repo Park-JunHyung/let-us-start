@@ -9,20 +9,22 @@ import java.util.Arrays;
 public class CalcApp {
 	
 	private ArrayList<String> li ;
+	private String oB = "(";
+	private String cB = ")";
 	
 	public double calc3(String[] tokens) {
        
-        li = new ArrayList<String>();
+        li = new ArrayList<>();
         li.addAll( Arrays.asList(tokens) );
        
         while(li.size()>2){
-        	if(li.get(0).equals("(")||li.get(2).equals("("))
+        	if(li.get(0).equals(oB)||li.get(2).equals(oB))
         	{
-        		if(li.get(0).equals("("))
+        		if(li.get(0).equals(oB))
         		{
         			li.remove(0);
         			bracket(0);
-        		}else if(li.get(2).equals("("))
+        		}else if(li.get(2).equals(oB))
         		{
         			li.remove(2);
         			bracket(2);
@@ -45,22 +47,22 @@ public class CalcApp {
 		while((i+1)<li.size()){
 			//여는 괄호
 			//TO DO Array bug fix
-			if(li.get(i+1).equals(")"))
+			if(li.get(i+1).equals(cB))
         	{
-        		if(li.get(i+1).equals(")"))
+        		if(li.get(i+1).equals(cB))
         		{
         			li.remove(i+1);
         			return ;
         		}
         	}
 			// 닫는 괄호
-			else if(li.get(i).equals("(")||li.get(i+2).equals("("))
+			else if(li.get(i).equals(oB)||li.get(i+2).equals(oB))
 			{
-				if(li.get(i).equals("("))
+				if(li.get(i).equals(oB))
         		{
         			li.remove(i);
         			bracket(i);
-        		}else if(li.get(i+2).equals("("))
+        		}else if(li.get(i+2).equals(oB))
         		{
         			li.remove(i+2);
         			bracket(i+2);
