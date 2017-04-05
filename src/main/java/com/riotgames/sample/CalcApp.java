@@ -93,8 +93,10 @@ public class CalcApp  {
             secondOperand = Double.parseDouble(tokens[2]);
         } else {
             secondOperand = Double.parseDouble(tokens[1]);
-
         }
+        final Operator operator = Operator.findOperator(tokens[1]);
+
+        return operator.evaluate(firstOperand, secondOperand);
     }
 
     public static void main( String[] args ) {
