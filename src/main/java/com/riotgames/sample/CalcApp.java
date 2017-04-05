@@ -12,11 +12,15 @@ public class CalcApp  {
 	private String oB = "(";
 	private String cB = ")";
 	
+	private String QM ="\"";
+	
 	public double calc3 (String[] tokens) throws Exception {
        
+		
         li = new ArrayList<>();
         li.addAll( Arrays.asList(tokens) );
-       
+        
+  
         while(li.size()>2){
         	if(li.get(0).equals(oB)||li.get(2).equals(oB))
         	{
@@ -99,7 +103,7 @@ public class CalcApp  {
     public static void main( String[] args ) {
     	try{
     		final CalcApp app = new CalcApp();
-    		final StringBuilder outputs = new StringBuilder();
+    		final StringBuilder outputs = new StringBuilder();	
     		Arrays.asList(args).forEach(value -> outputs.append(value + " "));
     		System.err.println( "Addition of values: " + outputs + " = ");
     		System.err.println(app.calc3(args));
