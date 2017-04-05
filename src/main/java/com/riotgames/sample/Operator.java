@@ -39,7 +39,7 @@ public enum Operator {
 
     public abstract double evaluate(double firstOperand, double secondOperand);
 
-    public static Operator findOperator(String symbol){
+    public static Operator findOperator(String symbol) throws Exception{
         for (Operator op : values()) {
             if (op.symbol.equals(symbol)) {
                 return op;

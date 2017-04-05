@@ -6,13 +6,13 @@ import java.util.Arrays;
 /**
  * Calculator application
  */
-public class CalcApp {
+public class CalcApp  {
 	
 	private ArrayList<String> li ;
 	private String oB = "(";
 	private String cB = ")";
 	
-	public double calc3(String[] tokens) {
+	public double calc3 (String[] tokens) throws Exception {
        
         li = new ArrayList<>();
         li.addAll( Arrays.asList(tokens) );
@@ -40,7 +40,7 @@ public class CalcApp {
         }
         return Double.parseDouble(li.get(0));
     } 
-	public void bracket(int index){
+	public void bracket(int index) throws Exception {
 		
 		int i=index;
 		
@@ -81,7 +81,7 @@ public class CalcApp {
 	}
 	
 	
-    public double calc(String[] tokens) {
+    public double calc(String[] tokens) throws Exception {
         final double firstOperand;
         final double secondOperand;
         firstOperand = Double.parseDouble(tokens[0]);
@@ -97,10 +97,15 @@ public class CalcApp {
     }
 
     public static void main( String[] args ) {
-        final CalcApp app = new CalcApp();
-        final StringBuilder outputs = new StringBuilder();
-        Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-        System.out.println( "Addition of values: " + outputs + " = ");
-        System.out.println(app.calc3(args));
+    	try{
+    		final CalcApp app = new CalcApp();
+    		final StringBuilder outputs = new StringBuilder();
+    		Arrays.asList(args).forEach(value -> outputs.append(value + " "));
+    		System.out.println( "Addition of values: " + outputs + " = ");
+    		System.out.println(app.calc3(args));
+    	}catch(Exception e){
+    		System.out.println("Error");
+    	}
+    	
     }
 }
