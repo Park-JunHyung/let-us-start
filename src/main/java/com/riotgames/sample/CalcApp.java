@@ -13,7 +13,7 @@ public class CalcApp {
 	private String oB = "(";
 	private String cB = ")";
 
-	public double calc3(String[] tokens) throws Exception {
+	public double calc3(String[] tokens) {
 
 		li = new ArrayList<>();
 		li.addAll(Arrays.asList(tokens));
