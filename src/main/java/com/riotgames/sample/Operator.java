@@ -39,16 +39,13 @@ public enum Operator {
 
     public abstract double evaluate(double firstOperand, double secondOperand);
 
-    public static Operator findOperator(String symbol) throws Exception{
+    public static Operator findOperator(String symbol) {
         for (Operator op : values()) {
             if (op.symbol.equals(symbol)) {
                 return op;
             }
         }
-
-        Exception e = new Exception("Invalid operator");
-        throw e;
-        //throw new RuntimeException("Invalid operator");
+        throw new RuntimeException("Invalid operator");
 
     }
 }

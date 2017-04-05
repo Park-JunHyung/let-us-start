@@ -23,16 +23,21 @@ public class CalcAppTest
     /**
      * @return the suite of tests being tested
      */
+    /*
     public static Test suite()
     {
-        return new TestSuite( CalcAppTest.class );
-    }
+
+        return new TestSuite( CalcApp.class );
+    }*/
 
     /**
      * Rigourous Test :-)
+     * @throws Exception 
      */
-    public void testApp()
+    public void testApp() throws Exception
     {
-        assertTrue( true );
+    	String[] args = new String[] {"24","/","(","7","+","5",")","-","(","3","x","6",")"};
+    	CalcApp.main(args);
+        
     }
 }
