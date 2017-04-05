@@ -84,7 +84,7 @@ public class CalcApp  {
 	}
 
 
-    public double calc(String[] tokens) {
+    public double calc(String[] tokens) throws Exception {
         final double firstOperand;
         final double secondOperand;
         firstOperand = Double.parseDouble(tokens[0]);
