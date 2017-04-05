@@ -101,10 +101,10 @@ public class CalcApp  {
     		final CalcApp app = new CalcApp();
     		final StringBuilder outputs = new StringBuilder();
     		Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-    		System.out.println( "Addition of values: " + outputs + " = ");
-    		System.out.println(app.calc3(args));
+    		System.err.println( "Addition of values: " + outputs + " = ");
+    		System.err.println(app.calc3(args));
     	}catch(Exception e){
-    		System.out.println("Error");
+    		System.err.println("Error");
     	}
     	
     }
