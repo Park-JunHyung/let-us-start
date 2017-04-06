@@ -104,6 +104,7 @@ public class CalcApp {
 			logger.info(e.toString());
 		} catch (Exception e) {
 			logger.info(e.toString());
+			throw e;
 		}
 	}
 }
