@@ -102,6 +102,8 @@ public class CalcApp {
 			
 		} catch (ClassCastException e) {
 			logger.log(Level.INFO,()->"Syntax Error");
+		} catch (Exception e){
+			logger.log(Level.INFO,()->"Error");
 		}
 	}
 }
