@@ -2,6 +2,10 @@ package com.riotgames.sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import java.util.logging.StreamHandler;
 
 /**
  * Calculator application
@@ -90,10 +94,13 @@ public class CalcApp {
 
 		final CalcApp app = new CalcApp();
 		final StringBuilder outputs = new StringBuilder();
+		Logger logger = Logger.getLogger("My Logger");
+		
 		Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-		System.out.print("Addition of values: " + outputs + " = ");
+		
 		try {
-			System.out.println(app.calc3(args));
+			logger.log(Level.INFO,"Addition of values: " + outputs + " = " + app.calc3(args));
+			
 		} catch (Exception e) {
 			System.err.println("Syntax Error");
 		}
