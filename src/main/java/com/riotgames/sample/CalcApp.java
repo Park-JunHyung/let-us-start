@@ -102,8 +102,10 @@ public class CalcApp {
 			
 		} catch (ClassCastException e) {
 			logger.info(e.toString());
+			throw e;
 		} catch (Exception e) {
 			logger.info(e.toString());
+			throw e;
 		}
 	}
 }
