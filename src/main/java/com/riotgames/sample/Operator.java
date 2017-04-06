@@ -45,7 +45,7 @@ public enum Operator {
                 return op;
             }
         }
-        throw new ClassCastException("Invalid operator");
+        throw new NumberFormatException("Invalid operator");
 
     }
 }

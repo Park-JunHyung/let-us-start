@@ -100,12 +100,10 @@ public class CalcApp {
 		try {
 			logger.log(Level.INFO,()->"Addition of values: "+outputs+ " = " + app.calc3(args));
 			
-		} catch (ClassCastException e) {
+		} catch (NumberFormatException e) {
 			logger.info(e.toString());
-			throw e;
 		} catch (Exception e) {
 			logger.info(e.toString());
-			throw e;
 		}
 	}
 }
