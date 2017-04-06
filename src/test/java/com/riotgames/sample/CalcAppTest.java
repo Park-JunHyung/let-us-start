@@ -23,13 +23,7 @@ public class CalcAppTest
     /**
      * @return the suite of tests being tested
      */
-    /*
-    public static Test suite()
-    {
-
-        return new TestSuite( CalcApp.class );
-    }*/
-
+    
     /**
      * Rigourous Test :-)
      * @throws Exception 
