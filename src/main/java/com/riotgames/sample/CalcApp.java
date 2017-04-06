@@ -101,9 +101,7 @@ public class CalcApp {
 			logger.log(Level.INFO,()->"Addition of values: "+outputs+ " = " + app.calc3(args));
 			
 		} catch (ClassCastException e) {
-			logger.log(Level.INFO,()->"Syntax Error");
-		} catch (Exception e){
-			logger.log(Level.INFO,()->"Error");
-		}
+			logger.info(e.toString());
+		} 
 	}
 }
