@@ -1,8 +1,6 @@
 package com.riotgames.sample;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple CalcApp.
@@ -23,13 +21,7 @@ public class CalcAppTest
     /**
      * @return the suite of tests being tested
      */
-    /*
-    public static Test suite()
-    {
-
-        return new TestSuite( CalcApp.class );
-    }*/
-
+    
     /**
      * Rigourous Test :-)
      * @throws Exception 
